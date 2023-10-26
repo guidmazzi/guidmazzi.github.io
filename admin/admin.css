@@ -1,0 +1,205 @@
+body {
+    margin: 0;
+}
+
+.tela {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.itens {
+    width: 100%;
+    height: 100%;
+    min-height: 25%;
+    margin: -5px 0 5px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.itenssub {
+    width: calc(100% - 20px);
+    height: 100%;
+    min-height: 25%;
+    margin: 0 0 0 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.principal {
+    background-color: antiquewhite;
+    margin: 5px 5px 5px 0;
+    width: 1%;
+    height: 100vh; 
+    border-radius: 20px; 
+    display: flex;
+    flex: 1;
+}
+
+
+.divformulario {
+    background-color: aqua;
+    margin: 5% auto;
+    width: clamp(1%, 500px, 70%);
+    height: 70vh;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.idcamp {
+    width: 15px;
+    margin: 0 0 0 5px;
+}
+
+.formulariobox {
+    width: 1px;
+    background-color: azure;
+    margin: 5px 5px 0 0;
+    padding: 10px;
+    flex: 1;
+}
+
+.camp {
+    width: clamp(1px, 100%, 96%);
+}
+
+.labelflex {
+    display: flex;
+}
+
+.lateral {
+    width: 250px;
+    display: block;
+}
+
+@media only screen and (max-width: 600px) {  
+    .lateral {
+      width: 40%;
+    }
+  }
+
+#title {
+    background-color: aquamarine;
+    margin: 5px;
+    min-height: 25%;
+    height: 100px;
+    border-radius: 20px 20px 0 0;
+    flex: 1;
+}
+
+.ferramentas {
+    background-color: rgb(255, 131, 131);
+    min-height: 25%;
+    height: 100vh;
+    border-radius: 0 0 20px 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.ferramentastxt {
+    text-align: left;
+    margin: 8px 10px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.cadastroedit, .cadastroeditar {
+    height: 25px;
+    border: 0.5px solid rgb(165, 165, 196);
+    background-color: rgb(220, 220, 255);
+    overflow: hidden;
+}
+
+.cadastroedit:hover, .cadastroeditar:hover {
+    height: 25px;
+    border: 0.5px solid rgb(80, 80, 156);
+    background-color: rgb(119, 119, 175);
+}
+
+.flex1 {
+    flex: 1;
+}
+
+.textoedit {
+    padding: 2px;
+    margin: auto 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.lastborder {
+    border-radius: 0 0 5px 5px;
+}
+
+.lastborder2 {
+    border-radius: 0 0 0 5px;
+}
+
+.ajustes {
+    display: flex;
+}
+
+.cadastro, .editar, .relatorios, .opcoes {
+    background-color: aliceblue;
+    width: 100%;
+    height: 35px;
+    border-radius: 5px 0 0 5px;
+    margin: 0 0 5px 0;
+    overflow: hidden; 
+}
+
+.openseta {
+    background-color: rgb(175, 175, 175);
+    width: 35px;
+    height: 35px;
+    border-radius: 0 5px 5px 0;
+    float: right; 
+}
+
+.opensetasub {
+    background-color: rgb(159, 159, 187);
+    width: 25px;
+    height: 27px;
+    border-radius: 0 5px 5px 0;
+    float: right; 
+}
+
+.openseta-img {
+    width: 15px;
+    margin: calc(35px /4);
+}
+
+.opensetasub-img {
+    width: 10px;
+    margin: calc(35px /4);
+}
+
+.texto {
+    font-size: larger;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+.logo {
+    width: 50px;
+    margin: 10px auto;
+}
+
+.logo2 {
+    width: 50px;
+    margin: 10px;
+    display: none;
+}
+
+.lateraloff {
+    background-color: aquamarine;
+    margin: 5px;
+    min-height: 25%;
+    height: 100vh;
+    border-radius: 20px 20px 0 0;
+}
+
+#logo-img {
+    width: 50px;
+}
+

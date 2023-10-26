@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Console - Totem</title>
+    <link rel="stylesheet" href="admin.css">
+    <script src="admin.js"></script>
+</head>
+<body>
+    <div class="tela">
+        <div class="lateraloff">
+            <div class="logo2">
+                <img src="settings.png" id="logo-img">
+            </div>
+        </div>
+        <div class="lateral">
+            <div id="title">
+                <div class="texto">
+                    Admin Console
+                </div> 
+                <div class="logo">
+                    <img src="settings.png" id="logo-img">
+                </div> 
+                <div class="ferramentas">
+                    <div class="row">
+                        <div class="ajustes cadastroqdd">
+                            <div class="cadastro"> 
+                                <h3 class="ferramentastxt">CADASTRO</h3>
+                            </div> 
+                            <div class="openseta setacadastro">
+                                <img src="openseta.png" class="openseta-img setacadastro-img">
+                            </div> 
+                        </div> 
+                        <div class="itenscadastro itens" style="display: none;">
+                            <div class="cadastroedit cadastrolanches">
+                                <h3 class="textoedit">Lanches</h3>
+                            </div> 
+                            <div class="cadastroedit cadastrobebidas">
+                                <h3 class="textoedit">Bebidas</h3>
+                            </div> 
+                            <div class="cadastroedit cadastroporcoes">
+                                <h3 class="textoedit">Porções</h3>
+                            </div> 
+                            <div class="cadastroedit cadastrocombos lastborder"> 
+                                <h3 class="textoedit">Combos</h3>
+                            </div>                       
+                        </div> 
+                    </div> 
+                    <div class="row">
+                        <div class="ajustes editarqdd">
+                            <div class="editar">
+                                <h3 class="ferramentastxt">EDITAR</h3>
+                            </div> 
+                            <div class="openseta setaeditar">
+                                <img src="openseta.png" class="openseta-img setaeditar-img">
+                            </div> 
+                        </div> 
+                        <div class="itenseditar itens" style="display: none;">
+                            <div class="cadastroedit cadastrolanches">
+                                <h3 class="textoedit">Exibição</h3>
+                            </div> 
+                            <div class="row">
+                                <div class="ajustes cadastroeditqdd">
+                                    <div class="cadastroeditar flex1 lastborder2">
+                                        <h3 class="textoedit">Cadastro</h3>
+                                    </div> 
+                                    <div class="opensetasub setaeditarcadastro">
+                                        <img src="openseta.png" class="opensetasub-img setaeditarcadastrosub-img">
+                                    </div> 
+                                </div> 
+                                <div class="itenseditarcadastro itenssub" style="display: none;">
+                                    <div class="cadastroedit cadastrolanches">
+                                        <h3 class="textoedit">Lanches</h3>
+                                    </div> 
+                                    <div class="cadastroedit cadastrobebidas">
+                                        <h3 class="textoedit">Bebidas</h3>
+                                    </div> 
+                                    <div class="cadastroedit cadastroporcoes">
+                                        <h3 class="textoedit">Porções</h3>
+                                    </div> 
+                                    <div class="cadastroedit cadastrocombos lastborder"> 
+                                        <h3 class="textoedit">Combos</h3>
+                                    </div> 
+                                </div> 
+                            </div> 
+                        </div> 
+                    </div> 
+                    <div class="row">
+                        <div class="ajustes relatoriosqdd">
+                            <div class="relatorios">
+                                <h3 class="ferramentastxt">RELATÓRIOS</h3>
+                            </div>
+                            <div class="openseta setarelatorios">
+                                <img src="openseta.png" class="openseta-img setarelatorios-img">
+                            </div>
+                        </div> 
+                        <div class="itensrelatorios itens" style="display: none;">
+                            <div class="cadastroedit relatorionum1">
+                                <h3 class="textoedit">A1 - Tot. p vendidos</h3>
+                            </div>
+                            <div class="cadastroedit relatorionum2">
+                                <h3 class="textoedit">A2 - Tot.  Vendas</h3>
+                            </div> 
+                            <div class="cadastroedit relatorionum3 lastborder">
+                                <h3 class="textoedit">A3 - Vendas p Dia</h3>
+                            </div> 
+                        </div> 
+                    </div> 
+                    <div class="row">
+                        <div class="ajustes opcoesqdd">
+                            <div class="opcoes">
+                                <h3 class="ferramentastxt">OPÇÕES</h3>
+                            </div> 
+                            <div class="openseta setaopcoes">
+                                <img src="openseta.png" class="openseta-img setaopcoes-img">
+                            </div> 
+                        </div> 
+                        <div class="itensopcoes itens" style="display: none;">
+                        </div> 
+                    </div>
+                </div> 
+            </div> 
+            
+        </div> 
+        <div class="principal">
+            
+            <div class="divformulario">
+                <form class="formulario">
+                    <div class="formulariogeral">
+                        <div class="ajustes">
+                            <div class="formulariobox">
+                                <label class="labelnome">
+                                    <div class="textoform">NOME</div> 
+                                    <input type="text" class="nomecamp camp">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="ajustes">
+                            <div class="formulariobox">
+                                <label class="labelid labelflex">
+                                    <div class="textoform">ID</div> 
+                                    <input type="text" class="idcamp camp">
+                                </label>
+                            </div>
+                            <div class="formulariobox">
+                                <label class="labeldisponivel labelflex">
+                                    <div class="textoform">DISPONÍVEL</div> 
+                                    <input type="checkbox" class="disponivelcamp camp">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div> 
+        
+    </div> 
+</body>
+</html>
