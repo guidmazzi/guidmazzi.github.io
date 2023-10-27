@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const sections = [
         {
-            borderbutton: document.querySelector('.setacadastro'),
             button: document.querySelector('.setacadastro'),
             target: document.querySelector(".itenscadastro"),
             container: document.querySelector('.cadastro'),
@@ -9,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
             button2: document.querySelector('.logo2'),
         },
         {
-            borderbutton: document.querySelector('.setaeditar'),
             button: document.querySelector('.setaeditar'),
             target: document.querySelector(".itenseditar"),
             container: document.querySelector('.editar'),
@@ -17,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
             button2: document.querySelector('.logo2'),
         },
         {
-            borderbutton: document.querySelector('.setarelatorios'),
             button: document.querySelector('.setarelatorios'),
             target: document.querySelector(".itensrelatorios"),
             container: document.querySelector('.relatorios'),
@@ -25,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
             button2: document.querySelector('.logo2'),
         },
         {
-            borderbutton: document.querySelector('.setaopcoes'),
             button: document.querySelector('.setaopcoes'),
             target: document.querySelector(".itensopcoes"),
             container: document.querySelector('.opcoes'),
@@ -40,38 +36,52 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             button: document.querySelector('.logo'),
-            button2: document.querySelector('.logo2'),
+            button2: document.querySelector('.lateraloff'),
             target1: document.querySelector('.lateral'),
+            target2: document.querySelector('.lateraloff'),
             image: document.querySelector('.logo2'),
         }
     ];
 
     function toggleSection(section) {
-        const computedStyle = window.getComputedStyle(section.target);
-
-        if (computedStyle.display === "none" || computedStyle.display === "") {
-            section.target.style.display = "flex";
-            section.container.style.borderRadius = "5px 0 0 0";
-            section.borderbutton.style.borderRadius = "0 5px 0 0";
-            section.img.style.transform = "rotate(90deg)";
-        } else if (computedStyle.display === "flex") {
-            section.target.style.display = "none";
-            section.container.style.borderRadius = "5px 0 0 5px";
-            section.borderbutton.style.borderRadius = "0 5px 5px 0";
-            section.img.style.transform = "rotate(0deg)";
+        if (section.target) {
+            const computedStyle = window.getComputedStyle(section.target);
+    
+            if (computedStyle.display === "none" || computedStyle.display === "") {
+                section.target.style.display = "flex";
+                if (section.container) {
+                    section.container.style.borderRadius = "5px 0 0 0";
+                }
+                if (section.img) {
+                    section.img.style.transform = "rotate(90deg)";
+                }
+            } else if (computedStyle.display === "flex") {
+                section.target.style.display = "none";
+                if (section.container) {
+                    section.container.style.borderRadius = "5px 0 0 5px";
+                }
+                if (section.img) {
+                    section.img.style.transform = "rotate(0deg)";
+                }
+            }
         }
     }
+    
 
     function toggleSideBar(section) {
-        const computedStyle = window.getComputedStyle(section.target1);
+        if (section.target1 && section.image) {
+            const computedStyle = window.getComputedStyle(section.target1);
 
-        if (computedStyle.display === "none" || computedStyle.display === "") {
-            section.target1.style.display = "block";
-            section.image.style.display = "none";
-        } else if (computedStyle.display === "block") {
-            section.target1.style.display = "none";
-            section.image.style.display = "block";
-        }    
+            if (computedStyle.display === "none" || computedStyle.display === "") {
+                section.target1.style.display = "block";
+                section.target2.style.display = "none";
+                section.image.style.display = "none";
+            } else if (computedStyle.display === "block") {
+                section.target1.style.display = "none";
+                section.target2.style.display = "block";
+                section.image.style.display = "block";
+            }
+        }
     }
 
     sections.forEach((section) => {
