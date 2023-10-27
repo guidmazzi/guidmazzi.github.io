@@ -13,7 +13,7 @@
 
 <body>
     <div class="row">
-        <div class="carrinho container col-4">
+        <div class="carrinho container col-3">
             <h3>Carrinho</h3>
 
             <div class="list-group list-group-flush scrollarea appendCarrinho">
@@ -28,20 +28,20 @@
         </div>
 
 
-        <div id="initial" class="container col-8 initial">
+        <div id="initial" class="container col initial">
             <div class="row">
                 <div class="voltar">
-                    <div class="icon"> <i class="fas fa-home fa-2xl"></i> </div>
+                    <div class="icon"> <i class="fas fa-home fa-2xl home"></i> </div>
                 </div>
                 <div class="col-md-6 offset-md-3">
-                    <div class="row">
+                    <div class="row justify-content-center">
                         <h1> Peça aqui na <strong>Bom Lanche</strong>:</h1>
                     </div>
                     <div class="row">
                         <div id="pedido" class="col card">
                             <div class="inner-big-card">
                                 <div class="row card-big-text"> Fazer Pedido </div>
-                                <div class="row"> <img src="static/img/bag.png" class="img-big-card">
+                                <div class="row"> <img src="static/img/icons/bag.png" class="img-big-card">
                                 </div>
                             </div>
                         </div>
@@ -51,7 +51,8 @@
                             <div class="inner-big-card">
                                 <div class="row card-big-text"> Configurações / Settings </div>
                                 <div class="row">
-                                    <div class="row"> <img src="static/img/settings.png" class="img-big-card"> </div>
+                                    <div class="row"> <img src="static/img/icons/settings.png" class="img-big-card">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -60,23 +61,23 @@
             </div>
         </div>
 
-        <div class="container choice col-8" style="display: none">
+        <div class="container choice col" style="display: none">
             <div class="row">
                 <div class="voltar">
-                    <div class="icon"> <i class="fa-solid fa-arrow-left fa-2xl"></i> </div>
+                    <div class="icon"> <i class="fa-solid fa-arrow-left fa-2xl home"></i> </div>
                 </div>
                 <div class="col-md-6 offset-md-3">
                     <div class="row">
-                        <div class="inner-card">
+                        <div class="col inner-card">
                             <div id="comer" class="row card">
                                 <div class="row card-text"> Para comer aqui </div>
-                                <div class="row"><img src="static/img/counter.png" class="img-card"></div>
+                                <div class="row"><img src="static/img/icons/counter.png" class="img-card"></div>
                             </div>
                         </div>
-                        <div class="inner-card">
+                        <div class="col inner-card">
                             <div id="levar" class="row card">
                                 <div class="row card-text"> Para levar </div>
-                                <div class="row"><img src="static/img/car.png" class="img-card"></div>
+                                <div class="row"><img src="static/img/icons/car.png" class="img-card"></div>
                             </div>
                         </div>
                     </div>
@@ -84,43 +85,43 @@
             </div>
         </div>
 
-        <div class="container type-choice col-8" style="display: none">
+        <div class="container type-choice col" style="display: none">
             <div class="row">
                 <div class="voltar">
-                    <div class="icon"> <i class="fa-solid fa-arrow-left fa-2xl"></i> </div>
+                    <div class="icon"> <i class="fa-solid fa-arrow-left fa-2xl home"></i> </div>
                 </div>
                 <div class="col-md-6 offset-md-3">
                     <div class="row">
                         <div id="snack" class="col card">
                             <div class="row card-text"> Lanches </div>
-                            <div class="row"><img src="static/img/burger.png" class="img-card"></div>
+                            <div class="row"><img src="static/img/icons/burger.png" class="img-card"></div>
                         </div>
                         <div id="drink" class="col card">
                             <div class="row card-text"> Bebidas </div>
-                            <div class="row"><img src="static/img/soda.png" class="img-card"></div>
+                            <div class="row"><img src="static/img/icons/soda.png" class="img-card"></div>
                         </div>
                     </div>
                     <div class="row">
                         <div id="portion" class="col card">
                             <div class="row card-text"> Porção </div>
-                            <div class="row"><img src="static/img/fries.png" class="img-card"></div>
+                            <div class="row"><img src="static/img/icons/fries.png" class="img-card"></div>
                         </div>
                         <div id="combo" class="col card">
                             <div class="row card-text"> Combos </div>
-                            <div class="row"><img src="static/img/combo.png" class="img-card"></div>
+                            <div class="row"><img src="static/img/icons/combo.png" class="img-card"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="container snack-choice col-8" style="display: none">
+        <div class="container snack-choice col" style="display: none">
             <div class="row">
                 <div class="voltar">
-                    <div class="icon"> <i class="fa-solid fa-arrow-left fa-2xl"></i> </div>
+                    <div class="icon"> <i class="fa-solid fa-arrow-left fa-2xl home"></i> </div>
                 </div>
-                <div class="col-md-6 offset-md-3">
-                    <div class="row">
+                <div class="col-md-6 offset-md-3 snack-content">
+                    <!-- <div class="row">
                         <div id="sn-1" class="col card opt">
                             <div class="row card-text"> Big Lanche </div>
                             <div class="row"><img src="static/img/bigLanche.png" class="img-card"></div>
@@ -155,174 +156,128 @@
                             <div class="row"><img src="static/img/kidBom.png" class="img-card"></div>
                             <div id="price" class="row">R$ 11,90</div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
 
-        <div class="container drink-choice col-8" style="display: none">
+        <div class="container drink-choice col" style="display: none">
             <div class="row">
                 <div class="voltar">
-                    <div class="icon"> <i class="fa-solid fa-arrow-left fa-2xl"></i> </div>
+                    <div class="icon"> <i class="fa-solid fa-arrow-left fa-2xl home"></i> </div>
                 </div>
-                <div class="col-md-6 offset-md-3">
-                    <div class="row">
-                        <div id="dr-1" class="col card opt">
-                            <div class="row card-text"> Coca-cola </div>
-                            <div class="row"><img src="static/img/coca.png" class="img-card"></div>
-                            <div id="price" class="row">R$ 4,90</div>
-                        </div>
-                        <div id="dr-2" class="col card opt">
-                            <div class="row card-text"> Pepsi </div>
-                            <div class="row"><img src="static/img/pepsi.png" class="img-card"></div>
-                            <div id="price" class="row">R$ 4,90</div>
-                        </div>
+                <div class="col-md-6 offset-md-3 drink-content">
+                    <!-- 
+                    <div id="dr-8" class="col card opt">
+                        <div class="row card-text"> Heineken </div>
+                        <div class="row"><img src="static/img/drinks/heineken.png" class="img-card"></div>
+                        <div id="price" class="row">R$ 9,90</div>
                     </div>
-                    <div class="row">
-                        <div id="dr-3" class="col card opt">
-                            <div class="row card-text"> Guaraná </div>
-                            <div class="row"><img src="static/img/guarana.png" class="img-card"></div>
-                            <div id="price" class="row">R$ 4,90</div>
-                        </div>
-                        <div id="dr-4" class="col card opt">
-                            <div class="row card-text"> Fanta </div>
-                            <div class="row"><img src="static/img/danta.png" class="img-card"></div>
-                            <div id="price" class="row">R$ 4,90</div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div id="dr-5" class="col card opt">
-                            <div class="row card-text"> Suco </div>
-                            <div class="row"><img src="static/img/suco.png" class="img-card"></div>
-                            <div id="price" class="row">R$ 6,90</div>
-                        </div>
-                        <div id="dr-6" class="col card opt">
-                            <div class="row card-text"> Agua </div>
-                            <div class="row"><img src="static/img/agua.png" class="img-card"></div>
-                            <div id="price" class="row">R$ 1,50</div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div id="dr-7" class="col card opt">
-                            <div class="row card-text"> Skol </div>
-                            <div class="row"><img src="static/img/skol.png" class="img-card"></div>
-                            <div id="price" class="row">R$ 7,50</div>
-                        </div>
-                        <div id="dr-8" class="col card opt">
-                            <div class="row card-text"> Heineken </div>
-                            <div class="row"><img src="static/img/heineken.png" class="img-card"></div>
-                            <div id="price" class="row">R$ 9,90</div>
-                        </div>
                     </div>
                     <div class="row">
                         <div id="dr-9" class="col card opt">
                             <div class="row card-text"> Brahma </div>
-                            <div class="row"><img src="static/img/brahma.png" class="img-card"></div>
+                            <div class="row"><img src="static/img/drinks/brahma.png" class="img-card"></div>
                             <div id="price" class="row">R$ 7,50</div>
                         </div>
-                        <div id="dr-10" class="col card opt">
-                            <div class="row card-text"> Vinho </div>
-                            <div class="row"><img src="static/img/vinho.png" class="img-card"></div>
-                            <div id="price" class="row">R$ 8,90</div>
-                        </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
 
-        <div class="container portion-choice col-8" style="display: none">
+        <div class="container portion-choice col" style="display: none">
             <div class="row">
                 <div class="voltar">
-                    <div class="icon"> <i class="fa-solid fa-arrow-left fa-2xl"></i> </div>
+                    <div class="icon"> <i class="fa-solid fa-arrow-left fa-2xl home"></i> </div>
                 </div>
-                <div class="col-md-6 offset-md-3">
-                    <div class="row">
+                <div class="col-md-6 offset-md-3 portion-content">
+                    <!-- <div class="row">
                         <div id="pt-1" class="col card opt">
                             <div class="row card-text"> Batata-frita </div>
-                            <div class="row"><img src="static/img/batata.png" class="img-card"></div>
+                            <div class="row"><img src="static/img/portions/batata.png" class="img-card"></div>
                             <div id="price" class="row">R$ 15,90</div>
                         </div>
                         <div id="pt-2" class="col card opt">
                             <div class="row card-text"> Batata-chips </div>
-                            <div class="row"><img src="static/img/chips.png" class="img-card"></div>
+                            <div class="row"><img src="static/img/portions/chips.png" class="img-card"></div>
                             <div id="price" class="row">R$ 17,90</div>
                         </div>
                     </div>
                     <div class="row">
                         <div id="pt-3" class="col card opt">
                             <div class="row card-text"> Kibe </div>
-                            <div class="row"><img src="static/img/kibe.png" class="img-card"></div>
+                            <div class="row"><img src="static/img/portions/kibe.png" class="img-card"></div>
                             <div id="price" class="row">R$ 21,90</div>
                         </div>
                         <div id="pt-4" class="col card opt">
                             <div class="row card-text"> Peixe </div>
-                            <div class="row"><img src="static/img/peiixe.png" class="img-card"></div>
+                            <div class="row"><img src="static/img/portions/peiixe.png" class="img-card"></div>
                             <div id="price" class="row">R$ 14,90</div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
 
-        <div class="container combo-choice col-8" style="display: none">
+        <div class="container combo-choice col" style="display: none">
             <div class="row">
                 <div class="voltar">
-                    <div class="icon"> <i class="fa-solid fa-arrow-left fa-2xl"></i> </div>
+                    <div class="icon"> <i class="fa-solid fa-arrow-left fa-2xl home"></i> </div>
                 </div>
-                <div class="col-md-6 offset-md-3">
-                    <div class="row">
+                <div class="col-md-6 offset-md-3 combo-content">
+                    <!-- <div class="row">
                         <div id="cb-1" class="col card opt">
                             <div class="row card-text"> Combo Gostoso </div>
-                            <div class="row"><img src="static/img/bigCombo.png" class="img-card"></div>
+                            <div class="row"><img src="static/img/combos/bigCombo.png" class="img-card"></div>
                             <div id="price" class="row">R$ 32,50</div>
                         </div>
                         <div id="cb-2" class="col card opt">
                             <div class="row card-text"> Combo Especial Big </div>
-                            <div class="row"><img src="static/img/bigAgua.png" class="img-card"></div>
+                            <div class="row"><img src="static/img/combos/bigAgua.png" class="img-card"></div>
                             <div id="price" class="row">R$ 29,90</div>
                         </div>
                     </div>
                     <div class="row">
                         <div id="cb-3" class="col card opt">
                             <div class="row card-text"> Combo Familia </div>
-                            <div class="row"><img src="static/img/whopperCombo.png" class="img-card"></div>
+                            <div class="row"><img src="static/img/combos/whopperCombo.png" class="img-card"></div>
                             <div id="price" class="row">R$ 35,90</div>
                         </div>
                         <div id="cb-4" class="col card opt">
                             <div class="row card-text"> Combo Individual </div>
-                            <div class="row"><img src="static/img/whopperCoca.png" class="img-card"></div>
+                            <div class="row"><img src="static/img/combos/whopperCoca.png" class="img-card"></div>
                             <div id="price" class="row">R$ 24,90</div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
 
-        <div class="container settings col-8" style="display: none">
+        <div class="container settings col" style="display: none">
             <div class="row">
                 <div class="voltar">
-                    <div class="icon"> <i class="fa-solid fa-arrow-left fa-2xl"></i> </div>
+                    <div class="icon"> <i class="fa-solid fa-arrow-left fa-2xl home"></i> </div>
                 </div>
                 <div class="col-md-6 offset-md-3">
                     <div class="row">
                         <div id="cb-1" class="col card opt">
                             <div class="row card-text"> Língua / Language </div>
-                            <div class="row"><img src="static/img/brasil.jpg" class="img-card"
+                            <div class="row"><img src="static/img/icons/brasil.jpg" class="img-card"
                                     style="width: 200px; height: auto;"></div>
                         </div>
                         <div id="cb-2" class="col card opt">
                             <div class="row card-text"> Acessibilidade </div>
-                            <div class="row"><img src="static/img/acessibilidade.png" class="img-card"></div>
+                            <div class="row"><img src="static/img/icons/acessibilidade.png" class="img-card"></div>
                         </div>
                     </div>
                     <div class="row">
                         <div id="cb-3" class="col card opt">
                             <div class="row card-text"> Visual </div>
-                            <div class="row"><img src="static/img/olhos.png" class="img-card"></div>
+                            <div class="row"><img src="static/img/icons/olhos.png" class="img-card"></div>
                         </div>
                         <div id="cb-4" class="col card opt">
                             <div class="row card-text"> Modo Administrador </div>
-                            <div class="row"><img src="static/img/settings.png" class="img-card"></div>
+                            <div class="row"><img src="static/img/icons/settings.png" class="img-card"></div>
                         </div>
                     </div>
                 </div>
@@ -340,7 +295,7 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/1409accfea.js" crossorigin="anonymous"></script>
-    <script src="static/js/home.js"></script>
+    <script type="module" src="static/js/home.js"></script>
 </body>
 
 </html>

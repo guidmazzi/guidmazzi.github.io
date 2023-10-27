@@ -1,4 +1,9 @@
+import { getData } from './utils.js';
+import { createEventsProducts, getCarrinho } from './carrinho.js';
+
 sessionStorage.setItem('carrinho', [])
+const URL = 'https://486e-2804-431-d77c-de59-5995-efea-7901-2d97.ngrok-free.app/'
+// const URL = 'http://localhost:8000/'
 
 class Stack {
     constructor() {
@@ -87,6 +92,7 @@ const porcao = document.querySelector('#portion');
 const portionChoice = document.querySelector('.portion-choice');
 const combo = document.querySelector('#combo');
 const comboChoice = document.querySelector('.combo-choice');
+const settings = document.querySelector('.settings');
 
 
 lanche.addEventListener('click', function () {
@@ -117,66 +123,6 @@ combo.addEventListener('click', function () {
     console.log(pile)
 })
 
-
-window.onload = function () {
-    const opcao = document.querySelectorAll('.opt');
-    const carrinho = document.querySelector('.appendCarrinho');
-    opcao.forEach((opt) => {
-        opt.addEventListener('click', function () {
-            const cardText = opt.querySelector('.card-text').textContent;
-            const price = opt.querySelector('#price').textContent;
-            const cartItem = document.createElement('div');
-            cartItem.className = 'list';
-            cartItem.innerHTML = `
-                <div class="d-flex w-100 align-items-center justify-content-between">
-                    <strong class="mb-1 produto"> ${cardText} </strong>
-                    <button class="remove-button"> 
-                        <i class="fa-solid fa-x"></i>
-                    </button>
-                </div>
-                <div class="col-10 mb-1 small price"> ${price} </div>
-            `;
-            carrinho.appendChild(cartItem);
-
-            const priceFloat = parseFloat(price.replace('R$', '').replace(',', '.'));
-            const updateCarrinho = {
-                produto: cardText,
-                preco: priceFloat,
-            };
-            let currentCarrinho = JSON.parse(sessionStorage.getItem('carrinho') || '[]');
-            console.log(currentCarrinho)
-            console.log(typeof currentCarrinho)
-            currentCarrinho.push(updateCarrinho);
-            setCarrinho(currentCarrinho);
-        })
-    })
-
-    document.addEventListener('click', function (event) {
-        if (event.target.classList.contains('remove-button')) {
-            const listItem = event.target.closest('.list');
-            const cardText = listItem.querySelector('.produto').textContent;
-            const price = listItem.querySelector('.price').textContent;
-            if (listItem) {
-                listItem.remove();
-            }
-
-            const carrinho = JSON.parse(sessionStorage.getItem('carrinho'));
-            for (let i = 0; i < carrinho.length; i++) {
-                const item = carrinho[i];
-                console.log(typeof item.produto, typeof cardText)
-                if (item.produto.trim() === cardText.trim()) {
-                    const indexToRemove = carrinho.findIndex(item => item.produto.trim() === cardText.trim());
-                    console.log(indexToRemove)
-                    if (indexToRemove !== -1) {
-                        carrinho.splice(indexToRemove, 1);
-                        setCarrinho(carrinho);
-                    }
-                }
-            }
-        }
-    });
-};
-
 voltar.forEach((div) => {
     div.addEventListener('click', function () {
         console.log(pile)
@@ -186,7 +132,7 @@ voltar.forEach((div) => {
         drinkChoice.style.display = 'none';
         portionChoice.style.display = 'none';
         comboChoice.style.display = 'none';
-        lanche.style.d
+        settings.style.display = 'none';
         pile.pop()
         const lastPeek = pile.peek()
         console.log(lastPeek)
@@ -195,16 +141,6 @@ voltar.forEach((div) => {
         div.style.display = 'block';
     })
 });
-
-function setCarrinho(carrinho) {
-    sessionStorage.setItem('carrinho', JSON.stringify(carrinho));
-    const event = new Event('carrinhoUpdated');
-    window.dispatchEvent(event);
-}
-
-function getCarrinho() {
-    return JSON.parse(sessionStorage.getItem('carrinho')) || [];
-}
 
 window.addEventListener('carrinhoUpdated', function () {
     console.log('carrinho updated:', getCarrinho());
@@ -216,3 +152,92 @@ window.addEventListener('carrinhoUpdated', function () {
     price = price.toFixed(2);
     document.querySelector('.preco-total').innerHTML = `Preço Total: R$ ${price}` 
 });
+
+const prefix = 'products'
+getData(URL+prefix).then(data => {
+    const snacks = data.filter(row => row.category === 'lanche');
+    const drinks = data.filter(row => row.category === 'bebida');
+    const portions = data.filter(row => row.category === 'porcao');
+    const combos = data.filter(row => row.category === 'combo');
+
+    console.log('snacks: ', snacks)
+    console.log('drinks: ', drinks)
+    console.log('portions: ', portions)
+    console.log('combos: ', combos)
+    // const snacks = snack + snacks2
+
+    createOptionDivs(snacks, 'sn');
+    createOptionDivs(drinks, 'dr');
+    createOptionDivs(portions, 'pt');
+    createOptionDivs(combos, 'cb');
+
+    createEventsProducts()
+    console.log(data)
+
+}).catch(console.log());
+
+function createOption(row, type) {
+    const divRowContent = document.createElement('div');
+    divRowContent.className = 'col card opt'
+    divRowContent.id = `${type}-${row.id}`
+
+    const textDiv = document.createElement('div');
+    textDiv.className = 'row card-text';
+    textDiv.textContent = `${row.name}`;
+
+    const imageDiv = document.createElement('div');
+    const image = document.createElement('img');
+    image.src = `${row.img_source}`;
+    image.className = 'img-card';
+    imageDiv.appendChild(image);
+
+    const priceDiv = document.createElement('div');
+    priceDiv.id = 'price';
+    priceDiv.className = 'row';
+    priceDiv.textContent = `R$ ${row.price.toFixed(2)}`;
+
+    divRowContent.appendChild(textDiv);
+    divRowContent.appendChild(imageDiv);
+    divRowContent.appendChild(priceDiv);
+
+    return divRowContent
+}
+
+function createOptionDivs(categoryArray, type) {
+    const div = document.querySelector(`.${getNameType(type)}-content`)
+    console.log(`.${getNameType(type)}-content`)
+
+    for (let i = 0; categoryArray.length > i; i += 2){
+        const divRow = document.createElement('div');
+        divRow.className = 'row';
+
+        let divRowImpar;
+        const divRowContent = createOption(categoryArray[i], type);
+        if (i + 1 < categoryArray.length) {
+            divRowImpar = createOption(categoryArray[i + 1], type);
+        };
+
+        divRow.appendChild(divRowContent);
+        if (divRowImpar) {
+            divRow.appendChild(divRowImpar) ;
+        } else {
+            const emptyCol = document.createElement('div');
+            emptyCol.className = 'col';
+            divRow.appendChild(emptyCol);
+        };
+        div.appendChild(divRow)
+    };
+}
+
+function getNameType(type) {
+    switch (type) {
+        case 'sn':
+            return 'snack';
+        case 'dr':
+            return 'drink';
+        case 'pt':
+            return 'portion';
+        case 'cb':
+            return 'combo';
+    }
+}
