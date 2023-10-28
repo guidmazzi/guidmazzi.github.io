@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    background-color: antiquewhite;;
 }
 
 .tela {
@@ -229,3 +230,18 @@ body {
         flex-direction: column;
     }
   }
+.login-div {
+    height: 60vh;
+    background-color: rgb(255, 131, 131);
+    border-radius: 25px;
+    border-color: grey;
+    border: solid;
+}
+
+.mg-t-12 {
+    margin-top: 12px;
+}
+
+.mg-t-50{
+    margin-top: 10%;
+}

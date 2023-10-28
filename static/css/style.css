@@ -95,6 +95,10 @@ body {
     min-width: 226px;
 }
 
+.card-cart {
+    max-height: 35vh;
+}
+
 .img-big-card {
     height: 250px;
     width: 250px;
@@ -128,4 +132,11 @@ body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 25px;
     margin-top: 20px;
+}
+
+.mg-t-12 {
+    margin-top: 12px;
+}
+
+@media (max-width: 650px){
 }

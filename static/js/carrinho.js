@@ -1,3 +1,6 @@
+import { clearAllDivs, pile } from "./home.js";
+import { getData } from "./utils.js";
+
 export function createEventsProducts() {
     const opcao = document.querySelectorAll('.opt');
     const carrinho = document.querySelector('.appendCarrinho');
@@ -66,5 +69,53 @@ function setCarrinho(carrinho) {
 }
 
 export function getCarrinho() {
-    return JSON.parse(sessionStorage.getItem('carrinho')) || [];
+    const carrinhoData = sessionStorage.getItem('carrinho');
+    
+    if (carrinhoData) {
+        try {
+            return JSON.parse(carrinhoData);
+        } catch (error) {
+            console.error('Error parsing carrinho data:', error);
+        }
+    }
+
+    return []; // Return an empty array if parsing fails or if the data is not found
 }
+
+const finalizeButton = document.querySelector('.finalize-cart-button');
+finalizeButton.addEventListener('click', function () {
+    const carrinho = getCarrinho()
+    if (carrinho.length === 0) {
+        alert("Não é possivel efetuar o pedido com o carrinho vazio")
+        return;
+    }
+    pile.push(6)
+    clearAllDivs();
+    const cart = document.querySelector('#finalize-cart');
+    cart.style.display = 'block';
+})
+
+const optionsCart = document.querySelectorAll('.cart-opt');
+optionsCart.forEach(opt => {
+    opt.addEventListener('click', function() {
+        const carrinho = getCarrinho()
+        const params = {
+            payment: this.id,
+            products: carrinho
+        }
+        console.log(params)
+        
+        // getData()
+
+        clearAllDivs();
+        const cart = document.querySelector('.carrinho');
+        cart.style.display = 'none';
+        
+        const thanks = document.querySelector('.thanks');
+        thanks.style.display = 'block';
+
+        setTimeout(function() {
+            location.reload();
+        }, 5000);
+    })
+})

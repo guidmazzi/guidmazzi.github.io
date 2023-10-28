@@ -2,7 +2,7 @@ import { getData } from './utils.js';
 import { createEventsProducts, getCarrinho } from './carrinho.js';
 
 sessionStorage.setItem('carrinho', [])
-const URL = 'https://486e-2804-431-d77c-de59-5995-efea-7901-2d97.ngrok-free.app/'
+const URL = 'https://90d9-2804-431-d77c-de59-51a4-a7b5-de76-4562.ngrok-free.app/'
 // const URL = 'http://localhost:8000/'
 
 class Stack {
@@ -39,6 +39,8 @@ class Stack {
                 return document.querySelector('.snack-choice');
             case 5:
                 return document.querySelector('.settings');
+            case 6:
+                return document.querySelector('#finalize-cart');
         }
     }
 }
@@ -53,7 +55,7 @@ const escolhaLanche = document.querySelector('.type-choice');
 const initial = document.querySelector('.initial');
 const voltar = document.querySelectorAll('.icon');
 
-const pile = new Stack();
+export const pile = new Stack();
 pile.push(1);
 
 accessibilidade.addEventListener('click', function() {
@@ -93,6 +95,7 @@ const portionChoice = document.querySelector('.portion-choice');
 const combo = document.querySelector('#combo');
 const comboChoice = document.querySelector('.combo-choice');
 const settings = document.querySelector('.settings');
+const cart = document.querySelector('#finalize-cart');
 
 
 lanche.addEventListener('click', function () {
@@ -126,13 +129,7 @@ combo.addEventListener('click', function () {
 voltar.forEach((div) => {
     div.addEventListener('click', function () {
         console.log(pile)
-        choice.style.display = 'none';
-        escolhaLanche.style.display = 'none';
-        snackChoice.style.display = 'none';
-        drinkChoice.style.display = 'none';
-        portionChoice.style.display = 'none';
-        comboChoice.style.display = 'none';
-        settings.style.display = 'none';
+        clearAllDivs()
         pile.pop()
         const lastPeek = pile.peek()
         console.log(lastPeek)
@@ -160,6 +157,11 @@ getData(URL+prefix).then(data => {
     const portions = data.filter(row => row.category === 'porcao');
     const combos = data.filter(row => row.category === 'combo');
 
+    snacks.sort((a, b) => a.id - b.id);
+    drinks.sort((a, b) => a.id - b.id);
+    portions.sort((a, b) => a.id - b.id);
+    combos.sort((a, b) => a.id - b.id);
+    
     console.log('snacks: ', snacks)
     console.log('drinks: ', drinks)
     console.log('portions: ', portions)
@@ -241,3 +243,20 @@ function getNameType(type) {
             return 'combo';
     }
 }
+
+export function clearAllDivs() {
+    initial.style.display = 'none';
+    choice.style.display = 'none';
+    escolhaLanche.style.display = 'none';
+    snackChoice.style.display = 'none';
+    drinkChoice.style.display = 'none';
+    portionChoice.style.display = 'none';
+    comboChoice.style.display = 'none';
+    settings.style.display = 'none';
+    cart.style.display = 'none';
+}
+
+const adm = document.querySelector('#adm');
+adm.addEventListener('click', function() {
+    window.location.href = 'admin/login.html';
+})
