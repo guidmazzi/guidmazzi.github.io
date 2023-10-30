@@ -1,10 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     const sections = [
         {
-            button: document.querySelector('.setacadastro'),
-            target: document.querySelector(".itenscadastro"),
-            container: document.querySelector('.cadastro'),
-            img: document.querySelector('.setacadastro-img'),
+            button: document.querySelector('.cadastro'),
+            target: document.querySelector('.divformulario'),
             button2: document.querySelector('.logo2'),
         },
         {

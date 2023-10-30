@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background-color: antiquewhite;;
+    background-color: antiquewhite;
 }
 
 .tela {
@@ -35,20 +35,22 @@ body {
     border-radius: 20px; 
     display: flex;
     flex: 1;
+    flex-direction: column;
 }
 
 
 .divformulario {
-    margin: 5% auto;
+    margin: 15% auto;
     width: clamp(1%, 500px, 70%);
     padding: 10px;
-    display: flex;
+    display: none;
     flex-direction: column;
 }
 
 .formulariogeral {
-    background-color: aqua;
+    background-color: rgb(255, 170, 170);
     padding: 5px;
+    border-radius: 5px;
 }
 
 .idcamp {
@@ -64,7 +66,7 @@ body {
 
 .formulariobox {
     width: 1px;
-    background-color: azure;
+    background-color: rgb(255, 188, 188);
     margin: 2.5px;
     padding: 10px;
     flex: 1;
@@ -72,8 +74,23 @@ body {
     overflow: hidden;
 }
 
+input[type=text] {
+    border-radius: 5px;
+    height: 20px;
+}
+
+input[type=checkbox] {
+    height: 20px;
+}
+
 .nomecamp {
-    width: clamp(1px, 100%, 96%);
+    width: clamp(1px, 100%, 98%);
+}
+
+.categoriacamp {
+    width: clamp(1px, 100%, 100%);
+    height: 40px;
+    text-align: center;
 }
 
 .labelflex {
@@ -86,10 +103,24 @@ body {
     display: block;
 }
 
+.botaocadastrar {
+    width: 100%;
+    height: 40px;
+    margin: 5px 0 0 0;
+    border-radius: 2px;
+    border-color: rgb(255, 200, 200);
+    background-color: rgb(255, 122, 122);
+    transition: all 0.3s ease;
+}
+
+.botaocadastrar:hover {
+    border-color: rgb(170, 134, 134);
+    background-color: rgb(172, 138, 138);
+}
 
 
 #title {
-    background-color: aquamarine;
+    background-color: rgb(255, 111, 166);
     margin: 5px;
     min-height: 25%;
     height: 100px;
@@ -98,7 +129,7 @@ body {
 }
 
 .ferramentas {
-    background-color: rgb(255, 131, 131);
+    background-color: rgb(255, 154, 154);
     min-height: 25%;
     height: 100vh;
     border-radius: 0 0 20px 20px;
@@ -118,6 +149,7 @@ body {
     border: 0.5px solid rgb(165, 165, 196);
     background-color: rgb(220, 220, 255);
     overflow: hidden;
+    transition: all 0.5s ease;
 }
 
 .cadastroedit:hover, .cadastroeditar:hover {
@@ -138,6 +170,7 @@ body {
 
 .textoform {
     text-align: center;
+    margin: auto;
 }
 
 .lastborder {
@@ -153,12 +186,21 @@ body {
 }
 
 .cadastro, .editar, .relatorios, .opcoes {
-    background-color: aliceblue;
+    background-color: rgb(255, 255, 255);
     width: 100%;
     height: 35px;
     border-radius: 5px 0 0 5px;
     margin: 0 0 5px 0;
     overflow: hidden; 
+}
+
+.cadastro {
+    border-radius: 5px;
+    transition: all 0.3s ease;  
+}
+
+.cadastro:hover {
+    background-color: rgb(255, 211, 152);
 }
 
 .openseta {
@@ -206,11 +248,10 @@ body {
 
 .lateraloff {
     width: 40px;
-    background-color: aquamarine;
+    background-color: rgb(255, 111, 166);
     margin: 5px;
-    min-height: 25%;
-    height: 100vh;
-    border-radius: 20px 20px 0 0;
+    height: 45px;
+    border-radius: 20px;
     display: none;
 }
 
@@ -226,10 +267,16 @@ body {
     .lateral {
       width: 40%;
     }
+
     .labelflex {
         flex-direction: column;
     }
+
+    .divformulario {
+        width: 90%;
+    }   
   }
+
 .login-div {
     height: 60vh;
     background-color: rgb(255, 131, 131);
@@ -245,3 +292,5 @@ body {
 .mg-t-50{
     margin-top: 10%;
 }
+
+
