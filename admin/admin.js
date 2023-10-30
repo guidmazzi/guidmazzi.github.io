@@ -64,7 +64,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     }
-    
 
     function toggleSideBar(section) {
         if (section.target1 && section.image) {
@@ -93,4 +92,33 @@ document.addEventListener('DOMContentLoaded', function() {
             toggleSideBar(section);
         });
     });
+
+    const inputField = document.querySelector('.precocamp'); // Substitua 'seu-campo-de-texto' com o seletor correto do seu campo de texto
+    if (inputField) {
+        inputField.addEventListener('input', function() {
+            formatarDinheiro(inputField);
+        });
+    }
 });
+
+function formatarDinheiro(input) {
+    let valor = input.value.replace(/[^\d]/g, "");
+    if (valor.length === 0) {
+        input.value = 'R$0,00';
+        return;
+    }
+
+    let numero = parseFloat(valor);
+    if (isNaN(numero)) {
+        input.value = 'R$0,00';
+        return;
+    }
+
+    let dinheiro = (numero / 100).toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+    });
+
+    input.value = dinheiro;
+}
+

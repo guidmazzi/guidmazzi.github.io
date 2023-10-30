@@ -59,9 +59,8 @@ body {
     display: grid;
 }
 
-.disponivelcamp {
-    width: 100%;
-    
+.precocamp {
+    width: 60%; 
 }
 
 .formulariobox {
@@ -209,14 +208,24 @@ input[type=checkbox] {
     height: 35px;
     border-radius: 0 5px 5px 0;
     float: right; 
+    transition: all 0.3s ease;
+}
+
+.openseta:hover {
+    background-color: rgb(226, 202, 202);
 }
 
 .opensetasub {
     background-color: rgb(159, 159, 187);
-    width: 31px;
+    width: 32px;
     height: 27px;
     border-radius: 0 5px 5px 0;
     float: right; 
+    transition: all 0.3s ease;
+}
+
+.opensetasub:hover {
+    background-color: rgb(76, 76, 202);
 }
 
 .openseta-img {
@@ -263,20 +272,6 @@ input[type=checkbox] {
     width: 35px;
 }
 
-@media only screen and (max-width: 600px) {  
-    .lateral {
-      width: 40%;
-    }
-
-    .labelflex {
-        flex-direction: column;
-    }
-
-    .divformulario {
-        width: 90%;
-    }   
-  }
-
 .login-div {
     height: 60vh;
     background-color: rgb(255, 131, 131);
@@ -292,5 +287,25 @@ input[type=checkbox] {
 .mg-t-50{
     margin-top: 10%;
 }
+
+@media only screen and (max-width: 600px) {  
+    .lateral {
+      width: 40%;
+    }
+
+    .labelflex {
+        flex-direction: column;
+    }
+
+    .divformulario {
+        width: 90%;
+    }   
+
+    .precocamp {
+        width: 95%; 
+    }
+}
+
+
 
 
