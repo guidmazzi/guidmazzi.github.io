@@ -2,8 +2,8 @@ import { getData } from './utils.js';
 import { createEventsProducts, getCarrinho } from './carrinho.js';
 
 sessionStorage.setItem('carrinho', [])
-const URL = 'https://90d9-2804-431-d77c-de59-51a4-a7b5-de76-4562.ngrok-free.app/'
-// const URL = 'http://localhost:8000/'
+// export const URL = 'https://90d9-2804-431-d77c-de59-51a4-a7b5-de76-4562.ngrok-free.app/'
+export const URL = 'http://localhost:8000/'
 
 class Stack {
     constructor() {

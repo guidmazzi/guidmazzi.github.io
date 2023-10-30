@@ -1,5 +1,6 @@
 import { clearAllDivs, pile } from "./home.js";
-import { getData } from "./utils.js";
+import { postData } from "./utils.js";
+import { URL } from "./home.js";
 
 export function createEventsProducts() {
     const opcao = document.querySelectorAll('.opt');
@@ -99,13 +100,16 @@ const optionsCart = document.querySelectorAll('.cart-opt');
 optionsCart.forEach(opt => {
     opt.addEventListener('click', function() {
         const carrinho = getCarrinho()
+        const carrinhoIDs = carrinho.map(item => item.id);
+
         const params = {
             payment: this.id,
-            products: carrinho
+            products: carrinhoIDs
         }
         console.log(params)
-        
-        // getData()
+
+        const urlPost = URL + 'sales/admin'
+        postData(urlPost, params).catch(console.log())
 
         clearAllDivs();
         const cart = document.querySelector('.carrinho');
