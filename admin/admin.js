@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    const inputField = document.querySelector('.precocamp'); // Substitua 'seu-campo-de-texto' com o seletor correto do seu campo de texto
+    const inputField = document.querySelector('.precocamp');
     if (inputField) {
         inputField.addEventListener('input', function() {
             formatarDinheiro(inputField);
