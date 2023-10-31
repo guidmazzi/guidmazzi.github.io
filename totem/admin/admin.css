@@ -1,0 +1,506 @@
+body {
+    margin: 0;
+    background-color: antiquewhite;
+}
+
+.tela {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.itens {
+    width: 100%;
+    height: 100%;
+    min-height: 25%;
+    margin: -5px 0 5px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#vendas {
+    display: none;
+    flex-direction: column;
+}
+
+.itenssub {
+    width: calc(100% - 20px);
+    height: 100%;
+    min-height: 25%;
+    margin: 0 0 0 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.principal {
+    background-color: antiquewhite;
+    margin: 5px 5px 5px 0;
+    width: 1%;
+    height: 100vh; 
+    border-radius: 20px; 
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.venda-button {
+    background-color: #af4c4c;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 5px;
+}
+.venda-button:hover {
+    background-color: #681c1c;
+}
+.venda-container {
+    background-color: rgb(223, 203, 178);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.produtos-container {
+    display: none;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.divformulario {
+    margin: 15% auto;
+    width: clamp(1%, 500px, 70%);
+    padding: 10px;
+    display: none;
+    flex-direction: column;
+}
+
+.div-form-edit {
+    margin: 15% auto;
+    width: clamp(1%, 500px, 70%);
+    padding: 10px;
+    /* display: none; */
+    flex-direction: column;
+}
+
+.form-edit {
+    background-color: rgb(255, 170, 170);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.edit-div {
+    max-height: 98vh;
+    overflow: auto;
+}
+
+.formulariogeral {
+    background-color: rgb(255, 170, 170);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.idcamp {
+    width: clamp(1px, 25px, 100%);
+    margin: auto;
+    display: grid;
+}
+
+.precocamp {
+    width: 60%; 
+}
+
+.formulariobox {
+    width: 1px;
+    background-color: rgb(255, 188, 188);
+    margin: 2.5px;
+    padding: 10px;
+    flex: 1;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+input[type=text] {
+    border-radius: 5px;
+    height: 20px;
+}
+
+input[type=checkbox] {
+    height: 20px;
+}
+
+.nomecamp {
+    width: clamp(1px, 100%, 98%);
+}
+
+.categoriacamp {
+    width: clamp(1px, 100%, 100%);
+    height: 40px;
+    text-align: center;
+}
+
+.labelflex {
+    display: flex;
+    flex-direction: row;
+}
+
+.lateral {
+    width: 250px;
+    display: block;
+}
+
+.botaocadastrar {
+    width: 100%;
+    height: 40px;
+    margin: 5px 0 0 0;
+    border-radius: 2px;
+    border-color: rgb(255, 200, 200);
+    background-color: rgb(255, 122, 122);
+    transition: all 0.3s ease;
+}
+
+.botaocadastrar:hover {
+    border-color: rgb(170, 134, 134);
+    background-color: rgb(172, 138, 138);
+}
+
+
+#title {
+    background-color: rgb(255, 111, 166);
+    margin: 5px;
+    min-height: 25%;
+    height: 100px;
+    border-radius: 20px 20px 0 0;
+    flex: 1;
+}
+
+.ferramentas {
+    background-color: rgb(255, 154, 154);
+    min-height: 25%;
+    height: 100vh;
+    border-radius: 0 0 20px 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.ferramentastxt {
+    text-align: left;
+    margin: 8px 10px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.cadastroedit, .cadastroeditar {
+    height: 27px;
+    border: 0.5px solid rgb(165, 165, 196);
+    background-color: rgb(220, 220, 255);
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+.cadastroedit:hover, .cadastroeditar:hover {
+    border: 0.5px solid rgb(80, 80, 156);
+    background-color: rgb(119, 119, 175);
+}
+
+.flex1 {
+    flex: 1;
+}
+
+.textoedit {
+    padding: 2px;
+    margin: auto 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.textoform {
+    text-align: center;
+    margin: auto;
+}
+
+.lastborder {
+    border-radius: 0 0 5px 5px;
+}
+
+.lastborder2 {
+    border-radius: 0 0 0 5px;
+}
+
+.ajustes {
+    display: flex;
+}
+
+.cadastro, .editar, .relatorios, .voltar {
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 35px;
+    border-radius: 5px 0 0 5px;
+    margin: 0 0 5px 0;
+    overflow: hidden; 
+}
+
+.cadastro, .voltar, .relatorios {
+    border-radius: 5px;
+    transition: all 0.3s ease;  
+}
+
+.cadastro:hover, .voltar:hover, .relatorios:hover {
+    background-color: rgb(255, 211, 152);
+}
+
+.openseta {
+    background-color: rgb(175, 175, 175);
+    width: 35px;
+    height: 35px;
+    border-radius: 0 5px 5px 0;
+    float: right; 
+    transition: all 0.3s ease;
+}
+
+.openseta:hover {
+    background-color: rgb(226, 202, 202);
+}
+
+.edit-button {
+    background-color: rgb(175, 175, 175);
+    width: 35px;
+    height: 35px;
+    border-radius: 5px 5px 5px 5px;
+    transition: all 0.3s ease;
+}
+
+.edit-button:hover {
+    background-color: rgb(226, 202, 202);
+}
+
+.opensetasub {
+    background-color: rgb(159, 159, 187);
+    width: 31px;
+    height: 27px;
+    border-radius: 0 5px 5px 0;
+    float: right; 
+    transition: all 0.3s ease;
+}
+
+.opensetasub:hover {
+    background-color: rgb(76, 76, 202);
+}
+
+.openseta-img {
+    width: 15px;
+    margin: calc(35px /4);
+}
+
+.opensetasub-img {
+    width: 10px;
+    margin: calc(35px /4);
+}
+
+.texto {
+    font-size: larger;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+.logo {
+    width: 50px;
+    margin: 10px auto;
+}
+
+.logo2 {
+    width: 35px;
+    margin: 5px auto;
+    display: none;
+}
+
+.lateraloff {
+    width: 40px;
+    background-color: rgb(255, 111, 166);
+    margin: 5px;
+    height: 45px;
+    border-radius: 20px;
+    display: none;
+}
+
+#logo-img {
+    width: 50px;
+}
+
+#logo-img2 {
+    width: 35px;
+}
+
+.login-div {
+    height: 60vh;
+    background-color: rgb(255, 131, 131);
+    border-radius: 25px;
+    border-color: grey;
+    border: solid;
+}
+
+.mg-t-12 {
+    margin-top: 12px;
+}
+
+.mg-t-50{
+    margin-top: 10%;
+}
+
+@media only screen and (max-width: 600px) {  
+    .lateral {
+      width: 40%;
+    }
+
+    .labelflex {
+        flex-direction: column;
+    }
+
+    .divformulario {
+        width: 90%;
+    }   
+
+    .precocamp {
+        width: 95%; 
+    }
+}
+
+*{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+body{
+    font-family: Helvetica;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Table Styles */
+
+.table-wrapper{
+    margin: 10px 70px 70px;
+    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+}
+
+.fl-table {
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
+}
+
+.fl-table td, .fl-table th {
+    text-align: center;
+    padding: 8px;
+}
+
+.fl-table td {
+    border-right: 1px solid #f8f8f8;
+    font-size: 15px;
+}
+
+.fl-table thead th {
+    color: #000;
+    background: rgb(255, 131, 131);
+}
+
+
+.fl-table thead th:nth-child(odd) {
+    color: #000;
+    background: rgb(255, 131, 131);
+}
+
+.fl-table tr:nth-child(even) {
+    background: #F8F8F8;
+}
+
+/* Responsive */
+
+@media (max-width: 767px) {
+    .fl-table {
+        display: block;
+        width: 100%;
+    }
+    .table-wrapper:before{
+        content: "Scroll horizontally >";
+        display: block;
+        text-align: right;
+        font-size: 11px;
+        color: white;
+        padding: 0 0 10px;
+    }
+    .fl-table thead, .fl-table tbody, .fl-table thead th {
+        display: block;
+    }
+    .fl-table thead th:last-child{
+        border-bottom: none;
+    }
+    .fl-table thead {
+        float: left;
+    }
+    .fl-table tbody {
+        width: auto;
+        position: relative;
+        overflow-x: auto;
+    }
+    .fl-table td, .fl-table th {
+        padding: 20px .625em .625em .625em;
+        height: 60px;
+        vertical-align: middle;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        overflow-y: auto;
+        width: 120px;
+        font-size: 13px;
+        text-overflow: ellipsis;
+    }
+    .fl-table thead th {
+        text-align: left;
+        border-bottom: 1px solid #f7f7f9;
+    }
+    .fl-table tbody tr {
+        display: table-cell;
+    }
+    .fl-table tbody tr:nth-child(odd) {
+        background: none;
+    }
+    .fl-table tr:nth-child(even) {
+        background: transparent;
+    }
+    .fl-table tr td:nth-child(odd) {
+        background: #F8F8F8;
+        border-right: 1px solid #E6E4E4;
+    }
+    .fl-table tr td:nth-child(even) {
+        border-right: 1px solid #E6E4E4;
+    }
+    .fl-table tbody td {
+        display: block;
+        text-align: center;
+    }
+}
+

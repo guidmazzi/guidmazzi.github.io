@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title> Bom Lanche </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<body>
+    <div class="row">
+        <div class="carrinho container col-3">
+            <h3>Carrinho</h3>
+
+            <div class="list-group list-group-flush scrollarea appendCarrinho">
+            </div>
+
+            <div class="mini-div">
+                <div class="row finalize">
+                    <div class="col-8 preco-total">Preço Total: R$ 0.00</div>
+                    <div class="col-4"> <button class="finalize-cart-button"> FINALIZAR </button></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="initial" class="container col initial">
+            <div class="row">
+                <div class="voltar">
+                    <div class="icon"> <i class="fas fa-home fa-2xl home"></i> </div>
+                </div>
+                <div class="col-md-6 offset-md-3">
+                    <div class="row justify-content-center">
+                        <h1> Peça aqui na <strong>Bom Lanche</strong>:</h1>
+                    </div>
+                    <div class="row">
+                        <div id="pedido" class="col card">
+                            <div class="inner-big-card">
+                                <div class="row card-big-text"> Fazer Pedido </div>
+                                <div class="row"> <img src="static/img/icons/bag.png" class="img-big-card">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="accessibiliade" class="col card">
+                            <div class="inner-big-card">
+                                <div class="row card-big-text"> Configurações / Settings </div>
+                                <div class="row">
+                                    <div class="row"> <img src="static/img/icons/settings.png" class="img-big-card">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container choice col" style="display: none">
+            <div class="row">
+                <div class="voltar">
+                    <div class="icon"> <i class="fa-solid fa-arrow-left fa-2xl home"></i> </div>
+                </div>
+                <div class="col-md-6 offset-md-3">
+                    <div class="row">
+                        <div class="col inner-card">
+                            <div id="comer" class="row card">
+                                <div class="row card-text"> Para comer aqui </div>
+                                <div class="row"><img src="static/img/icons/counter.png" class="img-card"></div>
+                            </div>
+                        </div>
+                        <div class="col inner-card">
+                            <div id="levar" class="row card">
+                                <div class="row card-text"> Para levar </div>
+                                <div class="row"><img src="static/img/icons/car.png" class="img-card"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container type-choice col" style="display: none">
+            <div class="row">
+                <div class="voltar">
+                    <div class="icon"> <i class="fa-solid fa-arrow-left fa-2xl home"></i> </div>
+                </div>
+                <div class="col-md-6 offset-md-3">
+                    <div class="row">
+                        <div id="snack" class="col card">
+                            <div class="row card-text"> Lanches </div>
+                            <div class="row"><img src="static/img/icons/burger.png" class="img-card"></div>
+                        </div>
+                        <div id="drink" class="col card">
+                            <div class="row card-text"> Bebidas </div>
+                            <div class="row"><img src="static/img/icons/soda.png" class="img-card"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="portion" class="col card">
+                            <div class="row card-text"> Porção </div>
+                            <div class="row"><img src="static/img/icons/fries.png" class="img-card"></div>
+                        </div>
+                        <div id="combo" class="col card">
+                            <div class="row card-text"> Combos </div>
+                            <div class="row"><img src="static/img/icons/combo.png" class="img-card"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container snack-choice col" style="display: none">
+            <div class="row">
+                <div class="voltar">
+                    <div class="icon"> <i class="fa-solid fa-arrow-left fa-2xl home"></i> </div>
+                </div>
+                <div class="col-md-6 offset-md-3 snack-content">
+                    <!-- <div class="row">
+                        <div id="sn-1" class="col card opt">
+                            <div class="row card-text"> Big Lanche </div>
+                            <div class="row"><img src="static/img/bigLanche.png" class="img-card"></div>
+                            <div id="price" class="row">R$ 15,90</div>
+                        </div>
+                        <div id="sn-2" class="col card opt">
+                            <div class="row card-text"> Whooper Bom </div>
+                            <div class="row"><img src="static/img/whopper.png" class="img-card"></div>
+                            <div id="price" class="row">R$ 20,90</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="sn-3" class="col card opt">
+                            <div class="row card-text"> Big Bom </div>
+                            <div class="row"><img src="static/img/bigBom.png" class="img-card"></div>
+                            <div id="price" class="row">R$ 35,90</div>
+                        </div>
+                        <div id="sn-4" class="col card opt">
+                            <div class="row card-text"> Cristo Lanche </div>
+                            <div class="row"><img src="static/img/cristoLanche.png" class="img-card"></div>
+                            <div id="price" class="row">R$ 25,90</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="sn-5" class="col card opt">
+                            <div class="row card-text"> Veggie Lanche </div>
+                            <div class="row"><img src="static/img/veggieLanche.png" class="img-card"></div>
+                            <div id="price" class="row">R$ 19,90</div>
+                        </div>
+                        <div id="sn-6" class="col card opt">
+                            <div class="row card-text"> Kid Bom </div>
+                            <div class="row"><img src="static/img/kidBom.png" class="img-card"></div>
+                            <div id="price" class="row">R$ 11,90</div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="container drink-choice col" style="display: none">
+            <div class="row">
+                <div class="voltar">
+                    <div class="icon"> <i class="fa-solid fa-arrow-left fa-2xl home"></i> </div>
+                </div>
+                <div class="col-md-6 offset-md-3 drink-content">
+                    <!-- 
+                    <div id="dr-8" class="col card opt">
+                        <div class="row card-text"> Heineken </div>
+                        <div class="row"><img src="static/img/drinks/heineken.png" class="img-card"></div>
+                        <div id="price" class="row">R$ 9,90</div>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div id="dr-9" class="col card opt">
+                            <div class="row card-text"> Brahma </div>
+                            <div class="row"><img src="static/img/drinks/brahma.png" class="img-card"></div>
+                            <div id="price" class="row">R$ 7,50</div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="container portion-choice col" style="display: none">
+            <div class="row">
+                <div class="voltar">
+                    <div class="icon"> <i class="fa-solid fa-arrow-left fa-2xl home"></i> </div>
+                </div>
+                <div class="col-md-6 offset-md-3 portion-content">
+                    <!-- <div class="row">
+                        <div id="pt-1" class="col card opt">
+                            <div class="row card-text"> Batata-frita </div>
+                            <div class="row"><img src="static/img/portions/batata.png" class="img-card"></div>
+                            <div id="price" class="row">R$ 15,90</div>
+                        </div>
+                        <div id="pt-2" class="col card opt">
+                            <div class="row card-text"> Batata-chips </div>
+                            <div class="row"><img src="static/img/portions/chips.png" class="img-card"></div>
+                            <div id="price" class="row">R$ 17,90</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="pt-3" class="col card opt">
+                            <div class="row card-text"> Kibe </div>
+                            <div class="row"><img src="static/img/portions/kibe.png" class="img-card"></div>
+                            <div id="price" class="row">R$ 21,90</div>
+                        </div>
+                        <div id="pt-4" class="col card opt">
+                            <div class="row card-text"> Peixe </div>
+                            <div class="row"><img src="static/img/portions/peiixe.png" class="img-card"></div>
+                            <div id="price" class="row">R$ 14,90</div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="container combo-choice col" style="display: none">
+            <div class="row">
+                <div class="voltar">
+                    <div class="icon"> <i class="fa-solid fa-arrow-left fa-2xl home"></i> </div>
+                </div>
+                <div class="col-md-6 offset-md-3 combo-content">
+                    <!-- <div class="row">
+                        <div id="cb-1" class="col card opt">
+                            <div class="row card-text"> Combo Gostoso </div>
+                            <div class="row"><img src="static/img/combos/bigCombo.png" class="img-card"></div>
+                            <div id="price" class="row">R$ 32,50</div>
+                        </div>
+                        <div id="cb-2" class="col card opt">
+                            <div class="row card-text"> Combo Especial Big </div>
+                            <div class="row"><img src="static/img/combos/bigAgua.png" class="img-card"></div>
+                            <div id="price" class="row">R$ 29,90</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="cb-3" class="col card opt">
+                            <div class="row card-text"> Combo Familia </div>
+                            <div class="row"><img src="static/img/combos/whopperCombo.png" class="img-card"></div>
+                            <div id="price" class="row">R$ 35,90</div>
+                        </div>
+                        <div id="cb-4" class="col card opt">
+                            <div class="row card-text"> Combo Individual </div>
+                            <div class="row"><img src="static/img/combos/whopperCoca.png" class="img-card"></div>
+                            <div id="price" class="row">R$ 24,90</div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="container settings col" style="display: none">
+            <div class="row">
+                <div class="voltar">
+                    <div class="icon"> <i class="fa-solid fa-arrow-left fa-2xl home"></i> </div>
+                </div>
+                <div class="col-md-6 offset-md-3">
+                    <!-- <div class="row">
+                        <div id="cb-1" class="col card opt">
+                            <div class="row card-text"> Língua / Language </div>
+                            <div class="row"><img src="static/img/icons/brasil.jpg" class="img-card"
+                                    style="width: 200px; height: auto;"></div>
+                        </div>
+                        <div id="cb-2" class="col card opt">
+                            <div class="row card-text"> Acessibilidade </div>
+                            <div class="row"><img src="static/img/icons/acessibilidade.png" class="img-card"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="cb-3" class="col card opt">
+                            <div class="row card-text"> Visual </div>
+                            <div class="row"><img src="static/img/icons/olhos.png" class="img-card"></div>
+                        </div>
+                        <div id="cb-4" class="col card opt">
+                            <div class="row card-text"> Modo Administrador </div>
+                            <div class="row"><img src="static/img/icons/settings.png" class="img-card"></div>
+                        </div>
+                    </div> -->
+                    <div class="row">
+                        <div id="lingua" class="col card">
+                            <div class="row card-text"> Língua / Language </div>
+                            <div class="row"><img src="static/img/icons/brasil.jpg" class="img-card"
+                                    style="width: 300px; height: auto; margin-top: 10px;"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="adm" class="col card">
+                            <div class="row card-text"> Modo Administrador </div>
+                            <div class="row"><img src="static/img/icons/settings.png" class="img-card"
+                                    style="width: 240px; height: auto; margin-top: 10px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="finalize-cart" class="container col initial" style="display: none">
+            <div class="row">
+                <div class="voltar">
+                    <div class="icon"> <i class="fa-solid fa-arrow-left fa-2xl home"></i> </div>
+                </div>
+                <div class="col-md-6 offset-md-3 mg-t-12">
+                    <div class="row justify-content-center">
+                        <h2> Escolha a forma de pagamento: </h2>
+                    </div>
+                    <div class="row">
+                        <div id="credito" class="col card card-cart cart-opt">
+                            <div class="row card-text"> Crédito </div>
+                            <div class="row">
+                                <img src="static/img/icons/card.png" class="img-card">
+                            </div>
+                        </div>
+                        <div id="debito" class="col card card-cart cart-opt">
+                            <div class="row card-text"> Débito </div>
+                            <div class="row">
+                                <img src="static/img/icons/card.png" class="img-card">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="dinheiro" class="col card card-cart cart-opt">
+                            <div class="row card-text"> Dinheiro </div>
+                            <div class="row">
+                                <div class="row">
+                                    <img src="static/img/icons/money.png" class="img-card">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="caixa" class="col card card-cart cart-opt">
+                            <div class="row card-text"> Caixa </div>
+                            <div class="row">
+                                <div class="row">
+                                    <img src="static/img/icons/counter.png" class="img-card">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <h1 id="price-cart"> Preço Total: R$ 49.90</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container thanks">
+        <div class="row justify-content-center align-items-center vh-100">
+            <div class="col text-center">
+                <h1>Obrigado por pedir na Bom Lanche</h1>
+                <h3>Seu pedido será efetuado ao concluir seu pagamento</h3>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/1409accfea.js" crossorigin="anonymous"></script>
+    <script type="module" src="static/js/home.js"></script>
+</body>
+
+</html>
