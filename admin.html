@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Console - Totem</title>
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <div class="tela">
+        <div class="lateral">
+            <div id="title">
+                <div class="texto">
+                    Admin Console
+                </div>
+                <div class="logo">
+                    <img src="settings.png" id="logo-img">
+                </div>
+                <div class="ferramentas">
+                    <div class="ajustes cadastroqdd">
+                        <div class="cadastro">
+                            <h3 class="ferramentastxt">CADASTRO</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="ajustes editarqdd">
+                            <div class="editar">
+                                <h3 class="ferramentastxt">EDITAR</h3>
+                            </div>
+                            <div class="openseta setaeditar">
+                                <img src="openseta.png" class="openseta-img setaeditar-img">
+                            </div>
+                        </div>
+                        <div class="itenseditar itens" style="display: none;">
+                            <div class="row">
+                                <div class="ajustes cadastroeditqdd">
+                                    <div class="cadastroeditar flex1 lastborder2">
+                                        <h3 class="textoedit">Cadastro</h3>
+                                    </div>
+                                    <div class="opensetasub setaeditarcadastro">
+                                        <img src="openseta.png" class="opensetasub-img setaeditarcadastrosub-img">
+                                    </div>
+                                </div>
+                                <div class="itenseditarcadastro itenssub" style="display: none;">
+                                    <div class="cadastroedit cadastrolanches">
+                                        <h3 class="textoedit">Lanches</h3>
+                                    </div>
+                                    <div class="cadastroedit cadastrobebidas">
+                                        <h3 class="textoedit">Bebidas</h3>
+                                    </div>
+                                    <div class="cadastroedit cadastroporcoes">
+                                        <h3 class="textoedit">Porções</h3>
+                                    </div>
+                                    <div class="cadastroedit cadastrocombos lastborder">
+                                        <h3 class="textoedit">Combos</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ajustes relatoriosqdd">
+                        <div class="relatorios">
+                            <h3 class="ferramentastxt">RELATÓRIOS</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="ajustes opcoesqdd">
+                            <div class="voltar">
+                                <h3 class="ferramentastxt">VOLTAR</h3>
+                            </div>
+                        </div>
+                        <div class="itensopcoes itens" style="display: none;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="principal">
+            <div class="lateraloff">
+                <div class="logo2">
+                    <img src="settings.png" id="logo-img2">
+                </div>
+            </div>
+            <div id="vendas"></div>
+            <div class="divformulario">
+                <form class="formulario" id="formulariocadastrolanche">
+                    <div class="formulariogeral">
+                        <div class="ajustes">
+                            <div class="formulariobox">
+                                <label class="labelnome">
+                                    <div class="textoform">NOME</div>
+                                    <div class="containerinput">
+                                        <input type="text" class="nomecamp camp">
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="ajustes">
+                            <div class="formulariobox">
+                                <label class="labelid labelflex">
+                                    <div class="textoform">ID</div>
+                                    <input type="text" class="idcamp camp" readonly>
+                                </label>
+                            </div>
+                            <div class="formulariobox">
+                                <label class="labelpreco labelflex">
+                                    <div class="textoform">PREÇO</div>
+                                    <input type="text" class="precocamp camp" oninput="formatarDinheiro(this)"
+                                        value="R$ 0,00">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="ajustes">
+                            <div class="formulariobox">
+                                <label class="labelcategoria">
+                                    <div class="textoform">CATEGORIA</div>
+                                    <div class="containerinput">
+                                        <select type="dropdown" class="categoriacamp camp">
+                                            <option value="none" selected disabled>SELECIONAR</option>
+                                            <option value="lanche">Lanche</option>
+                                            <option value="porcao">Porção</option>
+                                            <option value="bebida">Bebida</option>
+                                            <option value="combo">Combo</option>
+                                        </select>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <input id="submit-register" type="submit" value="Cadastrar" class="botaocadastrar">
+                    </div>
+                </form>
+            </div>
+
+            <div class="edit-div" style="display: none;">
+                <div class="table-wrapper">
+                    <table class="fl-table" id="product-table">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Nome</th>
+                                <th>Preço</th>
+                                <th>Categoria</th>
+                                <th>Editar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="div-form-edit" style="display: none;">
+                <form class="form" id="form-edit">
+                    <div class="formulariogeral">
+                        <div class="ajustes">
+                            <div class="formulariobox">
+                                <label class="labelnome">
+                                    <div class="textoform">NOME</div>
+                                    <div class="containerinput">
+                                        <input type="text" class="nomecamp camp">
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="ajustes">
+                            <div class="formulariobox">
+                                <label class="labelid labelflex">
+                                    <div class="textoform">ID</div>
+                                    <input type="text" class="idcamp camp" readonly>
+                                </label>
+                            </div>
+                            <div class="formulariobox">
+                                <label class="labelpreco labelflex">
+                                    <div class="textoform">PREÇO</div>
+                                    <input type="text" class="precocamp camp" oninput="formatarDinheiro(this)"
+                                        value="R$ 0,00">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="ajustes">
+                            <div class="formulariobox">
+                                <label class="labelcategoria">
+                                    <div class="textoform">CATEGORIA</div>
+                                    <div class="containerinput">
+                                        <select id="select-edit" type="dropdown" class="categoriacamp camp">
+                                            <option value="lanche">Lanche</option>
+                                            <option value="porcao">Porção</option>
+                                            <option value="bebida">Bebida</option>
+                                            <option value="combo">Combo</option>
+                                        </select>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <input id="submit-edit" type="submit" value="Editar" class="botaocadastrar">
+                        <input id="submit-delete" type="submit" value="Deletar" class="botaocadastrar">
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <script type="module" src="admin.js"></script>
+</body>
+
+</html>
