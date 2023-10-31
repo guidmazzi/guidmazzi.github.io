@@ -1,6 +1,6 @@
 import { getData, postData } from '../static/js/utils.js'
 // import { URL } from '../static/js/home.js';
-const URL = 'http://127.0.0.1:8000/'
+const URL = 'https://7ed9-2804-431-d77d-aac7-4157-cf84-5b39-460e.ngrok-free.app/'
 
 document.addEventListener('DOMContentLoaded', function() {
     let id = 0;
@@ -30,13 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
             button2: document.querySelector('.logo2'),
         },
         {
-            button: document.querySelector('.setarelatorios'),
-            target: document.querySelector(".itensrelatorios"),
-            container: document.querySelector('.relatorios'),
-            img: document.querySelector('.setarelatorios-img'),
-            button2: document.querySelector('.logo2'),
-        },
-        {
             button: document.querySelector('.cadastroeditqdd'),
             target: document.querySelector(".itenseditarcadastro"),
             img: document.querySelector('.setaeditarcadastrosub-img'),
@@ -62,6 +55,8 @@ document.addEventListener('DOMContentLoaded', function() {
             target.style.display = 'none';
             const formEditDiv = document.querySelector('.div-form-edit');
             formEditDiv.style.display = 'none';
+            const doc = document.querySelector('#vendas');
+            doc.style.display = 'none';
 
             const computedStyle = window.getComputedStyle(section.target);
     
@@ -375,6 +370,19 @@ backButton.addEventListener('click', function () {
     window.location.href = "../index.html";
 })
 
+
+const report = document.querySelector('.relatorios');
+report.addEventListener('click', function () {
+    const doc = document.querySelector('#vendas');
+    doc.style.display = 'block';
+    const target = document.querySelector('.edit-div');
+    target.style.display = 'none';
+    const formEditDiv = document.querySelector('.div-form-edit');
+    formEditDiv.style.display = 'none';
+    const formCadastro = document.querySelector('.divformulario');
+    formCadastro.style.display = 'none';
+})
+
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
@@ -383,3 +391,93 @@ function capitalizeFirstLetter(string) {
 function lowerFirstLetter(string) {
     return string.charAt(0).toLowerCase() + string.slice(1);
 }
+
+let simulatedResponse;
+document.addEventListener('DOMContentLoaded', function() {
+    
+    const newUrl = URL + 'admin'
+    getData(newUrl).then(data => {
+        simulatedResponse = data;
+        for (const vendaId in simulatedResponse) {
+            console.log(simulatedResponse)
+            console.log(vendaId)
+            const sumOfPrices = simulatedResponse[vendaId].reduce((total, item) => total + item.price, 0);
+    
+            let vendaContainer = document.createElement('div');
+            vendaContainer.classList.add('venda-container');
+    
+            let div = document.createElement('div');
+            div.classList.add('row-sale');
+            let span = document.createElement('span');
+            span.innerText = `Venda #${vendaId} - Total: R$${sumOfPrices.toFixed(2)}`;
+            span.style.userSelect = "none";
+            div.appendChild(span)
+    
+            let produtosContainer = document.createElement('div');
+            produtosContainer.classList.add('produtos-container');
+            produtosContainer.style.display = "none";
+            
+            // Evento de clique para mostrar ou ocultar os produtos
+            div.addEventListener('click', function() {
+                if (produtosContainer.style.display === "none") {
+                    produtosContainer.style.display = "block";
+                    mostrarProdutos(vendaId, produtosContainer);
+                } else {
+                    produtosContainer.style.display = "none";
+                }
+            });
+    
+            vendaContainer.appendChild(div);
+            vendaContainer.appendChild(produtosContainer);
+            vendasDiv.appendChild(vendaContainer);
+        }
+    }).catch(console.log)
+    // Referência ao elemento 'vendas'
+    let vendasDiv = document.getElementById('vendas');
+    let vendaIDS = [];
+    // Função para mostrar os produtos de uma venda específica
+    function mostrarProdutos(vendaId, container) {
+        if (vendaIDS.includes(vendaId)) {
+            return;
+        }
+        vendaIDS.push(vendaId)
+        let produtos = simulatedResponse[vendaId];
+        let table = document.createElement('table');
+        let headers = ["Produto", "Preço", "Categoria"];
+
+        // Criação do cabeçalho da tabela
+        let header = table.insertRow(0);
+        for (let i = 0; i < headers.length; i++) {
+            let th = document.createElement('th');
+            th.innerHTML = headers[i];
+            header.appendChild(th);
+        }
+
+        // Preenchimento da tabela com os produtos
+        produtos.forEach(produto => {
+            let row = table.insertRow();
+            let productName = row.insertCell(0);
+            let productPrice = row.insertCell(1);
+            let productCategory = row.insertCell(2);
+            productName.innerHTML = produto.product;
+            productPrice.innerHTML = formatCurrency(produto.price);
+            productCategory.innerHTML = formatCategory(produto.category);
+        });
+
+        container.appendChild(table);
+    }
+
+    // Função para formatar o valor monetário
+    function formatCurrency(value) {
+        return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    }
+
+    // Função para formatar a categoria
+    function formatCategory(category) {
+        return category.toLowerCase() === 'porcao' ? 'Porção' : category.charAt(0).toUpperCase() + category.slice(1);
+    }
+
+    // Criação dos elementos para cada venda e manipulação dos eventos
+    console.log(simulatedResponse)
+
+});

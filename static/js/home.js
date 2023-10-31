@@ -3,7 +3,7 @@ import { createEventsProducts, getCarrinho } from './carrinho.js';
 
 sessionStorage.setItem('carrinho', [])
 // export const URL = 'https://90d9-2804-431-d77c-de59-51a4-a7b5-de76-4562.ngrok-free.app/'
-export const URL = 'http://localhost:8000/'
+export const URL = 'https://7ed9-2804-431-d77d-aac7-4157-cf84-5b39-460e.ngrok-free.app/'
 
 class Stack {
     constructor() {

@@ -64,7 +64,43 @@ body {
 .edit-div {
     max-height: 98vh;
     overflow: auto;
+    align-items: baseline;
 }
+
+.sale-div {
+    max-height: 98vh;
+    overflow: auto;
+    max-width: 98%;
+    margin-left: 25px;
+}
+
+.row-sale {
+    background-color: rgb(255, 154, 154);
+    border: 1px solid rgb(255, 111, 166);
+    width: 95%;
+    height: 10vh;
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 25px;
+}
+
+.row-sale span{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.row-sale {
+    cursor: pointer;
+    /* Other styling properties */
+  }
+  
+  .row-sale:hover {
+    cursor: pointer; /* Ensure the hand cursor is displayed on hover */
+    /* Other hover styles */
+  }
 
 .formulariogeral {
     background-color: rgb(255, 170, 170);
@@ -212,12 +248,12 @@ input[type=checkbox] {
     overflow: hidden; 
 }
 
-.cadastro, .voltar {
+.cadastro, .voltar, .relatorios {
     border-radius: 5px;
     transition: all 0.3s ease;  
 }
 
-.cadastro:hover, .voltar:hover {
+.cadastro:hover, .voltar:hover, .relatorios:hover {
     background-color: rgb(255, 211, 152);
 }
 
@@ -457,3 +493,19 @@ body{
     }
 }
 
+table {
+    width: 95%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border-left: 1px solid rgb(255, 111, 166);
+    border-right: 1px solid rgb(255, 111, 166);
+    border-bottom: 1px solid rgb(255, 111, 166);
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: rgb(255, 154, 154);
+}
