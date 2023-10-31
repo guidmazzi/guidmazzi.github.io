@@ -1,4 +1,21 @@
+import { getData, postData } from '../static/js/utils.js'
+// import { URL } from '../static/js/home.js';
+const URL = 'http://127.0.0.1:8000/'
+
 document.addEventListener('DOMContentLoaded', function() {
+    let id = 0;
+    const newUrl = URL + 'products'
+    getData(newUrl).then(data => {
+        data.forEach(d => {
+            if (id < d.id){
+                id = d.id
+            }
+        })
+        const form = document.getElementById('formulariocadastrolanche');
+        const idInput = form.querySelector('.idcamp');
+        idInput.value = id + 1
+    }).catch(console.log());
+
     const sections = [
         {
             button: document.querySelector('.cadastro'),
@@ -20,13 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
             button2: document.querySelector('.logo2'),
         },
         {
-            button: document.querySelector('.setaopcoes'),
-            target: document.querySelector(".itensopcoes"),
-            container: document.querySelector('.opcoes'),
-            img: document.querySelector('.setaopcoes-img'),
-            button2: document.querySelector('.logo2'),
-        },
-        {
             button: document.querySelector('.cadastroeditqdd'),
             target: document.querySelector(".itenseditarcadastro"),
             img: document.querySelector('.setaeditarcadastrosub-img'),
@@ -38,11 +48,21 @@ document.addEventListener('DOMContentLoaded', function() {
             target1: document.querySelector('.lateral'),
             target2: document.querySelector('.lateraloff'),
             image: document.querySelector('.logo2'),
-        }
+        },
+        {
+            button: document.querySelector('.cadastrolanches'),
+            target: document.querySelector('.edit-div'),
+            button2: document.querySelector('.logo2'),
+        },
     ];
 
     function toggleSection(section) {
         if (section.target) {
+            const target = document.querySelector('.edit-div');
+            target.style.display = 'none';
+            const formEditDiv = document.querySelector('.div-form-edit');
+            formEditDiv.style.display = 'none';
+
             const computedStyle = window.getComputedStyle(section.target);
     
             if (computedStyle.display === "none" || computedStyle.display === "") {
@@ -99,6 +119,73 @@ document.addEventListener('DOMContentLoaded', function() {
             formatarDinheiro(inputField);
         });
     }
+
+    const lancheDoc = document.querySelector('.cadastrolanches');
+    lancheDoc.addEventListener('click', function () {
+        const formCadastro = document.querySelector('.divformulario');
+        formCadastro.style.display = 'none';
+
+        const target = document.querySelector('.edit-div');
+        target.style.display = 'block';
+
+        const urlTotal = URL + 'products/type?' + new URLSearchParams({
+            category: 'lanche'
+        })
+        getData(urlTotal).then(data => {
+            populateTable(data)
+        })
+    });
+
+    const bebidaDoc = document.querySelector('.cadastrobebidas');
+    bebidaDoc.addEventListener('click', function () {
+        const formCadastro = document.querySelector('.divformulario');
+        formCadastro.style.display = 'none';
+
+        const target = document.querySelector('.edit-div');
+        target.style.display = 'block';
+
+        const urlTotal = URL + 'products/type?' + new URLSearchParams({
+            category: 'bebida'
+        })
+        getData(urlTotal).then(data => {
+            populateTable(data)
+        })
+
+    });
+
+    const porcaoDoc = document.querySelector('.cadastroporcoes');
+    porcaoDoc.addEventListener('click', function () {
+        const formCadastro = document.querySelector('.divformulario');
+        formCadastro.style.display = 'none';
+
+        const target = document.querySelector('.edit-div');
+        target.style.display = 'block';
+
+        const urlTotal = URL + 'products/type?' + new URLSearchParams({
+            category: 'porcao'
+        })
+        getData(urlTotal).then(data => {
+            populateTable(data)
+        })
+
+    });
+
+    const comboDoc = document.querySelector('.cadastrocombos');
+    comboDoc.addEventListener('click', function () {
+        const formCadastro = document.querySelector('.divformulario');
+        formCadastro.style.display = 'none';
+
+        const target = document.querySelector('.edit-div');
+        target.style.display = 'block';
+
+        const urlTotal = URL + 'products/type?' + new URLSearchParams({
+            category: 'combo'
+        })
+        getData(urlTotal).then(data => {
+            populateTable(data)
+        })
+
+    });
 });
 
 function formatarDinheiro(input) {
@@ -122,3 +209,177 @@ function formatarDinheiro(input) {
     input.value = dinheiro;
 }
 
+
+function clearTable() {
+    const table = document.getElementById('product-table');
+    const tbody = table.querySelector('tbody');
+    tbody.innerHTML = ''; // Clear the table body
+}
+
+
+function populateTable(data) {
+    clearTable();
+
+    const table = document.getElementById('product-table');
+    const tbody = table.querySelector('tbody');
+
+    data.forEach(item => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${item.id}</td>
+            <td>${item.name}</td>
+            <td>${item.price}</td>
+            <td>${capitalizeFirstLetter(item.category)}</td>
+            <td>
+                <button class="edit edit-button" data-id="${item.id}">
+                    <i class="fa-solid fa-pen"></i>
+                </button>
+            </td>
+        `;
+        tbody.appendChild(row);
+    });
+
+    const editButtons = document.querySelectorAll('.edit');
+    editButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const formEditDiv = document.querySelector('.div-form-edit');
+            const tableDiv = document.querySelector('.edit-div');
+
+            const id = button.getAttribute('data-id');
+            const row = button.closest('tr');
+
+            const name = row.querySelector('td:nth-child(2)').textContent;
+            const price = row.querySelector('td:nth-child(3)').textContent;
+            const category = row.querySelector('td:nth-child(4)').textContent;
+
+            const form = document.getElementById('form-edit');
+            const nomeInput = form.querySelector('.nomecamp');
+            const idInput = form.querySelector('.idcamp');
+            const precoInput = form.querySelector('.precocamp');
+            const categoriaSelect = form.querySelector('#select-edit');
+
+            nomeInput.value = name
+            idInput.value = id
+            precoInput.value = price
+            categoriaSelect.value = lowerFirstLetter(category);
+
+            tableDiv.style.display = 'none';
+            formEditDiv.style.display = 'block';
+        });
+    });
+}
+
+
+const submitRegister = document.querySelector('#submit-register');
+submitRegister.addEventListener('click', function (e) {
+    e.preventDefault()
+    
+    const form = document.getElementById('formulariocadastrolanche');
+    const nomeInput = form.querySelector('.nomecamp');
+    const precoInput = form.querySelector('.precocamp');
+    const categoriaSelect = form.querySelector('.categoriacamp');
+
+    const nomeValue = nomeInput.value;
+    const categoriaValue = categoriaSelect.value;
+
+    const precoValue = precoInput.value;
+    const numericPart = precoValue.match(/[\d.,]+/);
+    const numericValue = parseFloat(numericPart[0].replace(',', '.'));
+
+    if (!nomeValue){
+        alert("Campo 'Nome' nao preenchido")
+        return;
+    } else if (numericValue < 0.1) {
+        alert("Campo 'Preço' nao preenchido")
+        return;
+    } else if (categoriaValue === 'none') {
+        alert("Campo 'Categoria' nao preenchido")
+        return;
+    }
+
+    const urlTotal = URL + `products`
+    const params = {
+        name: nomeValue,
+        price: numericValue,
+        category: categoriaValue
+    }
+    postData(urlTotal, params).then(data => {
+        location.reload();
+    }).catch(error => {
+        console.error('An error occurred:', error);
+    });
+});
+
+const submitEdit = document.querySelector('#submit-edit');
+submitEdit.addEventListener('click', function (e) {
+    e.preventDefault();
+    
+    const form = document.getElementById('form-edit');
+    const nomeInput = form.querySelector('.nomecamp');
+    const idInput = form.querySelector('.idcamp');
+    const precoInput = form.querySelector('.precocamp');
+    const categoriaSelect = form.querySelector('#select-edit');
+
+    const nomeValue = nomeInput.value;
+    const idValue = idInput.value;
+    const categoriaValue = categoriaSelect.value;
+
+    const precoValue = precoInput.value;
+    const numericPart = precoValue.match(/[\d.,]+/);
+    const numericValue = parseFloat(numericPart[0].replace(',', '.'));
+
+    const urlTotal = URL + `products/${idValue}`
+    const params = {
+        name: nomeValue,
+        price: numericValue,
+        category: categoriaValue
+    }
+    postData(urlTotal, params).then(data => {
+        location.reload();
+    }).catch(error => {
+        console.error('An error occurred:', error);
+    });
+});
+
+
+const submitDelete = document.querySelector('#submit-delete');
+submitDelete.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    if (confirm('Tem certeza que deseja deletar este produto?')) {
+        const form = document.getElementById('form-edit');
+        const idInput = form.querySelector('.idcamp');
+        const idValue = idInput.value;
+
+        const urlTotal = URL + `products/${idValue}`
+        fetch(urlTotal, {
+            method: 'DELETE',
+        })
+        .then(response => {
+            if (response.status === 202) {
+                location.reload();
+            } else {
+                console.error('An error occurred. Status:', response.status);
+            }
+        })
+        .catch(error => {
+            console.error('An error occurred:', error);
+        });
+    }
+    
+});
+
+
+const backButton = document.querySelector('.voltar');
+backButton.addEventListener('click', function () {
+    window.location.href = "../index.html";
+})
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+
+function lowerFirstLetter(string) {
+    return string.charAt(0).toLowerCase() + string.slice(1);
+}
