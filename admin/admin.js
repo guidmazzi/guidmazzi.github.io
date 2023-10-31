@@ -119,9 +119,12 @@ document.addEventListener('DOMContentLoaded', function() {
     lancheDoc.addEventListener('click', function () {
         const formCadastro = document.querySelector('.divformulario');
         formCadastro.style.display = 'none';
+        const doc = document.querySelector('#vendas');
+        doc.style.display = 'none';
 
         const target = document.querySelector('.edit-div');
         target.style.display = 'block';
+        
 
         const urlTotal = URL + 'products/type?' + new URLSearchParams({
             category: 'lanche'
@@ -135,6 +138,8 @@ document.addEventListener('DOMContentLoaded', function() {
     bebidaDoc.addEventListener('click', function () {
         const formCadastro = document.querySelector('.divformulario');
         formCadastro.style.display = 'none';
+        const doc = document.querySelector('#vendas');
+        doc.style.display = 'none';
 
         const target = document.querySelector('.edit-div');
         target.style.display = 'block';
@@ -152,6 +157,8 @@ document.addEventListener('DOMContentLoaded', function() {
     porcaoDoc.addEventListener('click', function () {
         const formCadastro = document.querySelector('.divformulario');
         formCadastro.style.display = 'none';
+        const doc = document.querySelector('#vendas');
+        doc.style.display = 'none';
 
         const target = document.querySelector('.edit-div');
         target.style.display = 'block';
@@ -169,6 +176,8 @@ document.addEventListener('DOMContentLoaded', function() {
     comboDoc.addEventListener('click', function () {
         const formCadastro = document.querySelector('.divformulario');
         formCadastro.style.display = 'none';
+        const doc = document.querySelector('#vendas');
+        doc.style.display = 'none';
 
         const target = document.querySelector('.edit-div');
         target.style.display = 'block';
